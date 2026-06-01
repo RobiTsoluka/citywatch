@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* variables pour style pour eviter la repetion */
+:root{
+
+    /* couleurs des differents fond d'elements */
+
+    --bgPageColor:#05070f;   
+    --bgCardsColor: #0b0f1d;
+    --bgNavColor: #0d1220;
+    --bgElementsColor: rgba(255,255,255,0.03);
+
+    /* Bleu - couleur principale */
+
+    --bleuPrincipal: #378ADD;
+    --bleuText: #85B7EB;
+    --bleutresClair: #B5D4F4;
+    --Bleubg: rgba(55,138,221,0.12);
+
+    /* Blanc - couleur des textes */
+
+    --colorTitreMain: #ffffff;    
+    --colorTexteSecondaire: rgba(255,255,255,0.7);
+    --colorSousTitres: rgba(255,255,255,0.4);
+    --colorTextesDiscrets: rgba(255,255,255,0.25);
+
+    /* Statuts alertes couleurs */
+
+    --rouge: #E24B4A;
+    --rouge-bg: rgba(266,75,74,0.15);
+    --orange: #EF9F27;
+    --orange-bg: rgba(239,159,39,0.15);
+    --vert: #4ade80;
+    --vert-bg:rgba(74,222,128,0.10);
+
+    /* Couleurs des bordures  */
+
+    --border: rgba(255,255,255,0.08);
+    --border-fort: rgba(255,255,255,0.15);
+
+    --police1: 'Poppins', sans-serif;
+
+}
+
+
+/* style global à tous les éléments */
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    text-decoration: none;
+    font-family: var(--police1);
+    
+
+}
+
+body{
+    background-color: var(--bgPageColor);
+
+}
+
+/* Barre de navigation */
+
+.navbar{
+    display: flex;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 30px 0;
+    border-bottom: 1px solid var(--border);
+    justify-content: space-around;
+    align-items: center;
+    background-color:var(--bgNavColor);
+    height: 110px;
+    overflow: hidden;
+    
+}
+
+.logo{
+
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+.logo h1 span{
+    color: var(--colorSousTitres);
+}
+.logo h1 {
+    color: var(--colorTitreMain);
+    font-weight: lighter;
+    font-size: 3rem;
+    white-space: nowrap;
+    font-family: serif;
+
+}
+
+.link-logo{
+    transition: 0.5s ease;
+}
+
+.link-logo:hover{
+    opacity: 0.6;
+}
+
+.logo img{
+
+    width: 80px;
+    height: 100px;
+    /* display: block; */
+
+
+}
+
+
+
+.nav-center{
+    
+    display: flex;
+    gap: 4rem;
+   
+}
+
+.navbar ul li a{
+    font-size: 1.1rem;
+}
+
+.nav-center li a{
+    color: var(--colorTitreMain);
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 10px ;
+    
+
+}
+
+.nav-center li a::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height:3px;
+    background-color: var(--colorSousTitres); 
+    transition: .5s ease;
+}
+
+.nav-center li:hover a::before{
+    width: 100%;
+    
+}
+
+.nav-center li a:hover{
+    opacity: 0.7;
+    transition: .5s ease;
+}
+
+
+
+.nav-right{
+    width: 15%;
+    display: flex;
+    gap: 20px;
+
+    
+
+}
+
+.nav-right a{
+    font-weight: bold;
+    background-color: var(--colorTitreMain);
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: var(--bgPageColor);
+    transition: background 0.4s ease;
+}
+
+.nav-right a:hover{
+    background-color: transparent;
+    border: 1px solid var(--border-fort);
+    color: var(--colorTitreMain);
+}
+
+
+

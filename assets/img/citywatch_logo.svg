@@ -1,0 +1,80 @@
+<svg width="680" height="320" viewBox="245 60 230 230" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- BÂTIMENT GAUCHE — gris -->
+  <rect x="265" y="185" width="38" height="90" rx="2.5" fill="#4B5563"/>
+  <rect x="271" y="194" width="8" height="8" rx="0.8" fill="white" opacity="0.15"/>
+  <rect x="283" y="194" width="8" height="8" rx="0.8" fill="white" opacity="0.15"/>
+  <rect x="271" y="207" width="8" height="8" rx="0.8" fill="white" opacity="0.15"/>
+  <rect x="283" y="207" width="8" height="8" rx="0.8" fill="white" opacity="0.15"/>
+  <rect x="271" y="220" width="8" height="8" rx="0.8" fill="white" opacity="0.15"/>
+  <rect x="283" y="220" width="8" height="8" rx="0.8" fill="white" opacity="0.15"/>
+  <rect x="271" y="233" width="8" height="8" rx="0.8" fill="white" opacity="0.15"/>
+  <rect x="283" y="233" width="8" height="8" rx="0.8" fill="white" opacity="0.15"/>
+  <rect x="271" y="246" width="8" height="8" rx="0.8" fill="white" opacity="0.15"/>
+  <rect x="283" y="246" width="8" height="8" rx="0.8" fill="white" opacity="0.15"/>
+  <rect x="271" y="259" width="8" height="8" rx="0.8" fill="white" opacity="0.15"/>
+  <rect x="283" y="259" width="8" height="8" rx="0.8" fill="white" opacity="0.15"/>
+
+  <!-- BÂTIMENT CENTRAL — blanc -->
+  <rect x="307" y="140" width="66" height="135" rx="2.5" fill="#FFFFFF"/>
+  <rect x="314" y="152" width="11" height="11" rx="1" fill="#0a0f1e" opacity="0.15"/>
+  <rect x="330" y="152" width="11" height="11" rx="1" fill="#0a0f1e" opacity="0.15"/>
+  <rect x="346" y="152" width="11" height="11" rx="1" fill="#0a0f1e" opacity="0.15"/>
+  <rect x="314" y="169" width="11" height="11" rx="1" fill="#0a0f1e" opacity="0.15"/>
+  <rect x="330" y="169" width="11" height="11" rx="1" fill="#0a0f1e" opacity="0.15"/>
+  <rect x="346" y="169" width="11" height="11" rx="1" fill="#0a0f1e" opacity="0.15"/>
+  <rect x="314" y="186" width="11" height="11" rx="1" fill="#0a0f1e" opacity="0.15"/>
+  <rect x="330" y="186" width="11" height="11" rx="1" fill="#0a0f1e" opacity="0.15"/>
+  <rect x="346" y="186" width="11" height="11" rx="1" fill="#0a0f1e" opacity="0.15"/>
+  <rect x="314" y="203" width="11" height="11" rx="1" fill="#0a0f1e" opacity="0.15"/>
+  <rect x="330" y="203" width="11" height="11" rx="1" fill="#0a0f1e" opacity="0.15"/>
+  <rect x="346" y="203" width="11" height="11" rx="1" fill="#0a0f1e" opacity="0.15"/>
+  <rect x="314" y="220" width="11" height="11" rx="1" fill="#0a0f1e" opacity="0.15"/>
+  <rect x="330" y="220" width="11" height="11" rx="1" fill="#0a0f1e" opacity="0.15"/>
+  <rect x="346" y="220" width="11" height="11" rx="1" fill="#0a0f1e" opacity="0.15"/>
+  <rect x="314" y="237" width="11" height="11" rx="1" fill="#0a0f1e" opacity="0.15"/>
+  <rect x="330" y="237" width="11" height="11" rx="1" fill="#0a0f1e" opacity="0.15"/>
+  <rect x="346" y="237" width="11" height="11" rx="1" fill="#0a0f1e" opacity="0.15"/>
+  <rect x="314" y="254" width="11" height="11" rx="1" fill="#0a0f1e" opacity="0.15"/>
+  <rect x="330" y="254" width="11" height="11" rx="1" fill="#0a0f1e" opacity="0.15"/>
+  <rect x="346" y="254" width="11" height="11" rx="1" fill="#0a0f1e" opacity="0.15"/>
+  <!-- toit -->
+  <rect x="303" y="136" width="74" height="5" rx="2" fill="#FFFFFF"/>
+  <!-- antenne -->
+  <rect x="337" y="116" width="3" height="21" rx="1" fill="#378ADD"/>
+  <circle cx="338.5" cy="113" r="4" fill="#378ADD"/>
+
+  <!-- ONDES gauche bleues -->
+  <path d="M324 108 Q309 95 324 82" fill="none" stroke="#378ADD" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+  <path d="M317 112 Q297 95 317 78" fill="none" stroke="#378ADD" stroke-width="1.5" stroke-linecap="round" opacity="0.45"/>
+
+  <!-- ONDES droite rouges -->
+  <path d="M353 108 Q368 95 353 82" fill="none" stroke="#E24B4A" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+  <path d="M360 112 Q380 95 360 78" fill="none" stroke="#E24B4A" stroke-width="1.5" stroke-linecap="round" opacity="0.45"/>
+
+  <!-- TRIANGLE ALERTE -->
+  <polygon points="338.5,68 318,105 359,105" fill="#E24B4A"/>
+  <rect x="336.5" y="76" width="4" height="14" rx="1.5" fill="white"/>
+  <circle cx="338.5" cy="97" r="2.8" fill="white"/>
+
+  <!-- BÂTIMENT DROIT — bleu -->
+  <rect x="377" y="168" width="38" height="107" rx="2.5" fill="#378ADD"/>
+  <rect x="383" y="178" width="8" height="8" rx="0.8" fill="white" opacity="0.2"/>
+  <rect x="395" y="178" width="8" height="8" rx="0.8" fill="white" opacity="0.2"/>
+  <rect x="383" y="191" width="8" height="8" rx="0.8" fill="white" opacity="0.2"/>
+  <rect x="395" y="191" width="8" height="8" rx="0.8" fill="white" opacity="0.2"/>
+  <rect x="383" y="204" width="8" height="8" rx="0.8" fill="white" opacity="0.2"/>
+  <rect x="395" y="204" width="8" height="8" rx="0.8" fill="white" opacity="0.2"/>
+  <rect x="383" y="217" width="8" height="8" rx="0.8" fill="white" opacity="0.2"/>
+  <rect x="395" y="217" width="8" height="8" rx="0.8" fill="white" opacity="0.2"/>
+  <rect x="383" y="230" width="8" height="8" rx="0.8" fill="white" opacity="0.2"/>
+  <rect x="395" y="230" width="8" height="8" rx="0.8" fill="white" opacity="0.2"/>
+  <rect x="383" y="243" width="8" height="8" rx="0.8" fill="white" opacity="0.2"/>
+  <rect x="395" y="243" width="8" height="8" rx="0.8" fill="white" opacity="0.2"/>
+  <rect x="383" y="256" width="8" height="8" rx="0.8" fill="white" opacity="0.2"/>
+  <rect x="395" y="256" width="8" height="8" rx="0.8" fill="white" opacity="0.2"/>
+
+  <!-- SOL -->
+  <rect x="255" y="275" width="170" height="2.5" rx="1.5" fill="#374151"/>
+
+</svg>
