@@ -43,9 +43,20 @@
         </div>
 
         <div class="hero-section-left-stats">
-            <div></div>
-            <div></div>
-            <div></div>
+            <div>
+                <h4>1000+</h4>
+                <p>Alertes ce mois-ci</p>
+            </div>
+            <div>
+                <h4>94%</h4>
+                <p>Alertes traitées en 48h</p>
+
+            </div>
+            <div>
+                <h4>5000+</h4>
+                <p>citoyens actifs</p>
+                
+            </div>
         </div>
 
         
@@ -54,6 +65,7 @@
 
     <div class="hero-section-right">
         <div>
+            
 
         </div>
 
@@ -62,21 +74,69 @@
 
 <div class="Acceuil-cards">
     <div>
-        <span>01</span>
-        <i></i>
-        <h3>Carte en direct</h3>
+        <p>01</p>
+        <i class="ti ti-map-2"></i>
+        <h4>Carte en direct</h4>
         <p>Toutes les alertes visibles sur une carte interactive.</p>
+    </div>
+    <div>
+        <p>02</p>
+        <i class="ti ti-thumb-up"></i>
+        <h4>Vote citoyen</h4>
+        <p>Les habitants confirment les alertes. Plus de votes sur une = priorité plus haute.</p>
 
     </div>
     <div>
+        <p>03</p>
+        <i class="ti ti-camera-up"></i>
+        <h4>Photo + GPS auto</h4>
+        <p>Un clic, une photo. La position est capturée automatiquement.</p>
 
     </div>
     <div>
+        <p>04</p>
+        <i class="ti ti-shield-check"></i>
+        <h4>Dashboard autorités</h4>
+        <p>Les autorités voient les urgences triées et peuvent répondre.</p>
 
     </div>
-    <div>
+</div>
 
+<div class="acceuil-alertes-categories">
+    <div class="acceuil-alertes-categories-description">
+        <h3>Alertes par catégorie</h3>
+        <p>Ce mois-ci</p>
     </div>
+
+    <div class="acceuil-alertes-categories-categories">
+        <div>
+            <p>Route abimé</p>
+        </div>
+        <div>
+            <p>Lampadaire en panne</p>
+        </div>
+        <div>
+            <p>Innondation</p>
+        </div>
+        <div>
+            <p>Déchets</p>
+        </div>
+        <div>
+            <p>Espace public</p>
+        </div>
+        <div>
+            <p>Autres</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="acceuil-register">
+    <div class="acceuil-register-description">
+        <h3>Votre ville a besoin de vous </h3>
+        <p>Rejoignez plus de 5 600 citoyens qui contribuent à rendre leur ville plus sûre chaque jour.</p>
+    </div>
+    <a href="#" class="acceuil-register-button">Créer un compte </a>
 </div>
     
 </body>

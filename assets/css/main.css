@@ -37,6 +37,7 @@
 
     --border: rgba(255,255,255,0.08);
     --border-fort: rgba(255,255,255,0.15);
+    --border-blue: rgba(39, 137, 242, 0.15);
 
     --police1: 'Poppins', sans-serif;
 
@@ -50,6 +51,8 @@
     list-style-type: none;
     text-decoration: none;
     font-family: var(--police1);
+    margin: 0;
+    padding: 0;
     
 
 }
@@ -58,6 +61,7 @@ body{
     background-color: var(--bgPageColor);
     padding: 0;
     margin: 0;
+    scroll-behavior: smooth;
 }
 
 /* Barre de navigation */
@@ -120,7 +124,7 @@ body{
 .nav-center{
     
     display: flex;
-    gap: 3.5rem;
+    gap: 3.2rem;
    
 }
 
@@ -171,8 +175,9 @@ body{
 .nav-right a{
     font-weight: 300;
     background-color: var(--colorTitreMain);
-    padding: 8px 15px;
-    border-radius: 5px;
+    padding: 6px 13px;
+    border-radius: 9px;
+    border: 1px solid var(--border-fort);
     color: var(--bgPageColor);
     transition: background 0.4s ease;
 }
@@ -191,11 +196,40 @@ body{
     padding:0 3rem ;
 }
 
+.hero-section-left{
+    width: 50%;
+}
+
+.hero-section-right{
+    width: auto;
+}
+
+.hero-section-left-text-haut{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 1rem;
+
+}
+
+
 .hero-section-left-text-haut .hero-section-left-text-haut-description{
     color: var(--bleuPrincipal);
     font-size: 0.8rem;
     font-family: serif;
     font-weight: normal;
+
+}
+
+
+
+
+
+.hero-section-left-text-haut .hero-section-left-text-haut-tiret{
+    background-color: var(--bleuPrincipal);
+    width: 30px;
+    height: 1px;
+
 }
 
 .hero-section-left-text-centre .hero-section-left-text-centre-title h1{
@@ -221,6 +255,46 @@ body{
     
 }
 
+.hero-section-left-stats{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 2rem 0;
+
+}
+
+.hero-section-left-stats div{
+
+    border: 1.3px solid var(--border);
+    padding: 16px;
+}
+
+.hero-section-left-stats div:nth-of-type(1){
+
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+
+.hero-section-left-stats div:nth-of-type(3){
+
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.hero-section-left-stats h4{
+    color: var(--colorTitreMain);
+    font-size: 1.2rem;
+    font-weight: normal;
+    /* margin-bottom: 0px; */
+    
+}
+
+.hero-section-left-stats p{
+    color: var(--colorSousTitres);
+    font-size: 0.9rem;
+    font-weight: normal;
+    font-family: serif;
+}
+
 .hero-section-left-buttons{
     display: flex;
     gap: 0.7rem;
@@ -229,11 +303,12 @@ body{
 }
 
 .hero-section-left-buttons a{
-    padding: 0.5rem;
+    padding: 6px 13px;
     border-radius: 8px;
     text-align: center;
     font-weight: 500;
     font-size: 0.8rem;
+    transition: background .4s ease;
 }
 
 .hero-section-left-buttons a:first-child{
@@ -244,13 +319,150 @@ body{
 .hero-section-left-buttons a:nth-of-type(2){
     background-color: transparent;
     border: 1px solid var(--border-fort);
-    color: rgba(255,255,255,0.3);
+    color: var(--colorTitreMain);
+    
     
     
 }
 
+.hero-section-left-buttons a:first-child:hover{
+    background-color: var(--colorSousTitres);
+    border: 1px solid var(--border-fort);
+    color: var(--colorTitreMain);
+}
 
-.hero-section-left-stats{
+.hero-section-left-buttons a:nth-of-type(2):hover{
+    background-color: var(--colorSousTitres);
+    color: var(--colorTitreMain);
+}
+
+
+/* section cards page acceuil */
+
+.Acceuil-cards{
     display: grid;
-    grid-template-columns: ;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    margin: 1rem;
+    
 }
+
+.Acceuil-cards div p, .Acceuil-cards div i,
+.Acceuil-cards div h4{
+    margin-bottom: 10px;
+}
+.Acceuil-cards div h4{
+    color: var(--colorTitreMain);
+    font-size: 0.9rem;
+    
+}
+.Acceuil-cards div p{
+    color: var(--colorTexteSecondaire);
+    font-size: 0.8rem;
+}
+
+.Acceuil-cards div:nth-of-type(1){border-top-left-radius: 1rem;border-bottom-left-radius: 1rem;}
+.Acceuil-cards div:nth-of-type(4){border-top-right-radius: 1rem;border-bottom-right-radius: 1rem;}
+
+
+.Acceuil-cards div{
+    border: 1px solid var(--border);
+    padding: 10px;
+
+}
+.Acceuil-cards div i{
+    font-size: 25px;
+    color: var(--bleuPrincipal);
+    font-weight: 500;
+
+}
+
+
+
+/*  */
+
+.acceuil-alertes-categories{
+    margin: 2rem 1rem;
+    padding: 16px;
+    background-color: transparent;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    width: 75%;
+    
+}
+.acceuil-alertes-categories-description h3{
+    color: var(--colorTitreMain);
+    font-size: 1.1rem;
+    font-weight: bold;
+    font-family: serif;
+}
+
+.acceuil-alertes-categories-description p{
+    color: var(--colorTexteSecondaire);
+    font-size: 0.8rem;
+
+
+}
+
+.acceuil-alertes-categories-categories{
+    padding: 1rem 0;
+}
+
+.acceuil-alertes-categories-categories p{
+    color: var(--colorTitreMain);
+    font-weight: bolder;
+    font-size: 0.7rem;
+}
+
+.acceuil-alertes-categories-categories div{
+    margin-bottom: 5px;
+}
+
+.acceuil-register{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    margin: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.acceuil-register .acceuil-register-description h3{
+    font-size: 1.5rem;
+    color: var(--colorTitreMain);
+    font-weight: normal;
+}
+
+.acceuil-register .acceuil-register-description p{
+    font-size: 0.8rem;
+    color: var(--colorTexteSecondaire);
+    font-weight: bold;
+    
+
+}
+
+.acceuil-register .acceuil-register-button{
+    margin: 0 20px;
+    background-color: transparent;
+    border-radius: 16px;
+    font-weight: 600;
+    border: 1px solid var(--border-fort);
+    padding: 12px;
+    font-size: 0.8rem;
+    color: var(--colorTitreMain);
+    width: 17%;
+    text-align: center;
+    transition: background 3s ease;
+    transition: color 2s ease;
+
+
+}
+
+.acceuil-register .acceuil-register-button:hover{
+    background-color: var(--colorTitreMain);
+    color: var(--bgPageColor);
+}
+
+
+
+
