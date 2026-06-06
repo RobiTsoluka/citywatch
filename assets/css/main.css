@@ -194,10 +194,12 @@ body{
 .hero-section{
     margin-top: 9rem;
     padding:0 3rem ;
+    display: flex;
+    align-items: center;
 }
 
 .hero-section-left{
-    width: 50%;
+    width: 46%;
 }
 
 .hero-section-right{
@@ -221,9 +223,9 @@ body{
 
 }
 
+ 
 
-
-
+ 
 
 .hero-section-left-text-haut .hero-section-left-text-haut-tiret{
     background-color: var(--bleuPrincipal);

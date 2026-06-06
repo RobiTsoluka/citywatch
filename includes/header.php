@@ -1,24 +1,17 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont/tabler-icons.min.css">
-    <link rel="stylesheet" href="/assets/./css/main.css">
-    <title>NAVBAR</title>
-</head>
-<body>
+    <link rel="stylesheet" href="/citywatch/assets/css/main.css">
+
+    <?php require_once "config/config.php"; ?>
 
 <nav class="navbar">
-    <a class="link-logo" href="../index.php">
+    <a class="link-logo" href="<?= SITE_URL ?>/index.php">
         <div class="logo">
-            <img src="/assets/img/citywatch_logo.svg" alt="logo">
+            <img src="/citywatch/assets/img/citywatch_logo.svg" alt="logo">
             <h1>City<span>Watch</span></h1>
         </div>
     </a>
     
     <ul class="nav-center">
-        <li><a href="/index.php">Acceuil</a></li>
+        <li><a href="<?= SITE_URL ?>/index.php">Acceuil</a></li>
         <li><a href="#">Carte</a></li>
         <li><a href="#">Signaler</a></li>
         <li><a href="#">Statistiques</a></li>
@@ -29,7 +22,3 @@
         <li><a href="#">S'inscrire</a></li>
     </ul>
 </nav>
-
-
-</body>
-</html>
