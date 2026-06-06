@@ -10,6 +10,7 @@
 
 
 <div>
+<?php require_once "config/config.php" ?>
 <?php require_once "includes/header.php" ?>
 </div>
 
@@ -136,7 +137,7 @@
         <h3>Votre ville a besoin de vous </h3>
         <p>Rejoignez plus de 5 600 citoyens qui contribuent à rendre leur ville plus sûre chaque jour.</p>
     </div>
-    <a href="#" class="acceuil-register-button">Créer un compte </a>
+    <a href="<?= SITE_URL ?>/inscription.php" class="acceuil-register-button">Créer un compte </a>
 </div>
 
     
