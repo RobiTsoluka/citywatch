@@ -62,6 +62,7 @@ body{
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
+    overflow:hidden;
 }
 
 /* Barre de navigation */
@@ -96,9 +97,9 @@ body{
 .logo h1 {
     color: var(--colorTitreMain);
     font-weight: lighter;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     white-space: nowrap;
-    /* font-family: serif; */
+    font-family: serif;
 
 }
 
@@ -465,6 +466,126 @@ body{
     color: var(--bgPageColor);
 }
 
+/* ################################################################################################ */
+/* MEME STYLE POUR PAGE INSCRIPTION ET CONNEXION*/
+/* ############################################################################################### */
+
+.body-inscription , .body-connexion{
+    background-image: url(/citywatch/assets/img/inscriptionbg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+
+.body-inscription .logo , .body-connexion .logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    margin: 0 10px;
+}
+
+.body-inscription .logo h1, .body-connexion .logo h1{
+    font-size: 1.5rem;
+    font-family: serif;
+}
+
+.container-inscription, .container-connexion{
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    border: 1px solid var(--border-fort);
+    padding: 30px;
+    background-color: transparent;
+    backdrop-filter: blur(6px);
+    border-radius: 13px;
+    box-shadow: 1px 5px 20px rgba(240, 233, 233, 0.03)
+
+    
+}
+
+.container-inscription h1, .container-connexion h1{
+    color: transparent;
+    -webkit-text-stroke: 1px var(--colorTitreMain);
+    font-size: 2.1rem;
+}
+
+.container-inscription form, .container-connexion form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+.container-inscription form label, .container-connexion form label{
+    color: var(--colorTitreMain);
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.container-inscription form input, .container-connexion form input{
+    border: none;
+    border-bottom: 1px solid var(--border-fort);
+    outline: none;
+    background-color: transparent;
+    margin: 0 5px;
+    padding: 10px 0;
+    color: var(--colorTitreMain);
+    display: flex;
+    align-items:center;
+}
+
+.container-inscription form input::placeholder,
+.container-connexion form input::placeholder{
+    color: #f4f2f0d2;
+    font-size: 0.7rem;
+    
+}
+
+
+.container-inscription form button,
+.container-connexion form button{
+    padding: 7px;
+    font-weight: bold;
+    margin-top: 6px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: background .4s ease;
+}
+
+.container-inscription form button:hover,
+.container-connexion form button:hover{
+    background-color: transparent;
+    border: .8px solid var(--colorTitreMain);
+    color: var(--colorTitreMain);
+
+}
+
+.container-inscription p, .container-connexion p{
+    color: var(--colorTitreMain);
+    font-size: 0.8rem;
+    text-align: center;
+}
+.container-inscription p a,
+.container-connexion p a{
+    color: var(--bleuPrincipal);
+    font-size: 0.8rem;
+    transition: color .4s ease;
+}
+.container-inscription p a:hover,
+.container-connexion p a:hover{
+    color: blue;
+}
 
 
 

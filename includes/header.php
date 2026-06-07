@@ -1,5 +1,5 @@
     <link rel="stylesheet" href="/citywatch/assets/css/main.css">
-
+    
     <?php require_once "config/config.php"; ?>
 
 <nav class="navbar">
@@ -18,7 +18,7 @@
         <li><a href="#">A propos</a></li>
     </ul>
     <ul class="nav-right">
-        <li><a href="#">Connexion</a></li>
-        <li><a href="#">S'inscrire</a></li>
+        <li><a href="<?= SITE_URL ?>/connexion.php">Connexion</a></li>
+        <li><a href="<?= SITE_URL ?>/inscription.php">S'inscrire</a></li>
     </ul>
 </nav>
