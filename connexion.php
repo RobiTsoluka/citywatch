@@ -26,10 +26,8 @@
 
     <form action="" method="post">
 
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" placeholder="Entrer votre email">
-        <label for="password">Mot de passe</label>
-        <input type="password" name="password" id="password" placeholder="Entrer votre mot de passe">
+        <input type="email" name="email" id="email" placeholder="Veuillez entrer votre email" autocomplete="off">
+        <input type="password" name="password" id="password" placeholder="Veuillez entrer votre mot de passe" autocomplete="off">
         <button type="submit">Se connecter</button>
 
     </form>

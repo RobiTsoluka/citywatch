@@ -1,6 +1,4 @@
-    <link rel="stylesheet" href="/citywatch/assets/css/main.css">
     
-    <?php require_once "config/config.php"; ?>
 
 <nav class="navbar">
     <a class="link-logo" href="<?= SITE_URL ?>/index.php">

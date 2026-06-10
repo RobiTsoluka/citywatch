@@ -1,18 +1,19 @@
+<?php require_once "config/config.php"; ?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/citywatch/assets/css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont/tabler-icons.min.css">
 </head>
 <body>
 
-
-<div>
-<?php require_once "config/config.php" ?>
 <?php require_once "includes/header.php" ?>
-</div>
+
 
 <div class="hero-section">
     <div class="hero-section-left">

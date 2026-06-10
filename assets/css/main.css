@@ -62,7 +62,7 @@ body{
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
-    overflow:hidden;
+    /* overflow:hidden; */
 }
 
 /* Barre de navigation */
@@ -373,7 +373,7 @@ body{
 
 }
 .Acceuil-cards div i{
-    font-size: 25px;
+    font-size: 28px;
     color: var(--bleuPrincipal);
     font-weight: 500;
 
@@ -506,7 +506,7 @@ body{
     background-color: transparent;
     backdrop-filter: blur(6px);
     border-radius: 13px;
-    box-shadow: 1px 5px 20px rgba(240, 233, 233, 0.03)
+    box-shadow: 1px 5px 20px rgba(239, 236, 236, 0.03)
 
     
 }
@@ -525,18 +525,13 @@ body{
     margin: 5px 0;
 }
 
-.container-inscription form label, .container-connexion form label{
-    color: var(--colorTitreMain);
-    font-size: 0.9rem;
-    margin-top: 5px;
-}
 
 .container-inscription form input, .container-connexion form input{
     border: none;
-    border-bottom: 1px solid var(--border-fort);
+    border-bottom: 1px solid var(--colorTitreMain);
     outline: none;
     background-color: transparent;
-    margin: 0 5px;
+    margin: 0 3px;
     padding: 10px 0;
     color: var(--colorTitreMain);
     display: flex;
@@ -545,8 +540,9 @@ body{
 
 .container-inscription form input::placeholder,
 .container-connexion form input::placeholder{
-    color: #f4f2f0d2;
-    font-size: 0.7rem;
+    color: var(--colorSousTitres);
+    font-size: 0.8rem;
+    font-weight: bold;
     
 }
 
@@ -555,12 +551,14 @@ body{
 .container-connexion form button{
     padding: 7px;
     font-weight: bold;
-    margin-top: 6px;
+    margin-top: 10px;
     border-radius: 10px;
     border: none;
     outline: none;
     cursor: pointer;
     transition: background .4s ease;
+    background-color: var(--bleuPrincipal);
+    
 }
 
 .container-inscription form button:hover,
@@ -578,6 +576,7 @@ body{
 }
 .container-inscription p a,
 .container-connexion p a{
+    margin-top: 8px;
     color: var(--bleuPrincipal);
     font-size: 0.8rem;
     transition: color .4s ease;
