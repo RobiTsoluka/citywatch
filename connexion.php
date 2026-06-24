@@ -1,41 +1,57 @@
-<?php require_once './config/config.php'; ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAGE D'INSCRIPTION</title>
     <link rel="stylesheet" href="<?= SITE_URL ?>/assets/css/main.css">
-    <title>PAGE CONNEXION</title>
 </head>
-<body class="body-connexion">
+<body>
 
-<a class="link-logo" href="<?= SITE_URL ?>/index.php">
 
-    <div class="logo">
-        <img src="/citywatch/assets/img/citywatch_logo.svg" alt="logo">
-        <h1>City<span>Watch</span></h1>
+<div class="container-connexion">
+
+    <div class="description">
+
     </div>
-</a>
 
+    <div class="form">
+        <h1>Creer un compte</h1>
+        <p>Créer votre compte citoyen en moins d'une minute !</p>
 
+        <form action="" method="post">
+            <div class="box-names">
+                <div class="box-nom">
 
+                </div>
+                <div class="box-prenom">
+                    
+                </div>
 
-    <div class="container-connexion">
+            </div>
 
-    <h1>Connexion.</h1>
+            <div class="box-email">
 
-    <form action="" method="post">
+            </div>
 
-        <input type="email" name="email" id="email" placeholder="Veuillez entrer votre email" autocomplete="off">
-        <input type="password" name="password" id="password" placeholder="Veuillez entrer votre mot de passe" autocomplete="off">
-        <button type="submit">Se connecter</button>
+            <div class="box-password">
 
-    </form>
+            </div>
 
-    <p>Vous ne possedez aucun compte ? <a href="<?= SITE_URL ?>/inscription.php">Créer un compte</a></p>
+            <div class="box-button">
+
+            </div>
+
+            <p>Vous possedez un compte ? <a href="">Se connecter...</a></p>
+        </form>
+    </div>
 
 
 
 </div>
+
+
+    
 </body>
 </html>

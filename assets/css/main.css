@@ -115,7 +115,6 @@ body{
 
     width: 36px;
     height: 36px;
-    /* display: block; */
 
 
 }
@@ -467,124 +466,144 @@ body{
 }
 
 /* ################################################################################################ */
-/* MEME STYLE POUR PAGE INSCRIPTION ET CONNEXION*/
+/* STYLE POUR PAGE INSCRIPTION ET CONNEXION*/
 /* ############################################################################################### */
 
-.body-inscription , .body-connexion{
-    background-image: url(/citywatch/assets/img/inscriptionbg.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    width: 100%;
+.container-inscription{
+    display: flex;
     height: 100vh;
+}
+.container-inscription .description{
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    
-
+    height: 100%;
+    width: 50%;
+    align-items: center;
+    background-color: var(--bgElementsColor);
+    border-right: 1px solid var(--border-fort);
 }
 
-.body-inscription .logo , .body-connexion .logo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 20px;
-    margin: 0 10px;
+.container-inscription .description img{
+    height: 300px;
+    width: 300px;
+    margin-bottom: 20px;
 }
 
-.body-inscription .logo h1, .body-connexion .logo h1{
-    font-size: 1.5rem;
-    font-family: serif;
-}
-
-.container-inscription, .container-connexion{
-    display: flex;
-    flex-direction: column;
-    width: 450px;
-    border: 1px solid var(--border-fort);
-    padding: 30px;
-    background-color: transparent;
-    backdrop-filter: blur(6px);
-    border-radius: 13px;
-    box-shadow: 1px 5px 20px rgba(239, 236, 236, 0.03)
-
-    
-}
-
-.container-inscription h1, .container-connexion h1{
-    color: transparent;
-    -webkit-text-stroke: 1px var(--colorTitreMain);
-    font-size: 2.1rem;
-}
-
-.container-inscription form, .container-connexion form{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
-    margin: 5px 0;
-}
-
-
-.container-inscription form input, .container-connexion form input{
-    border: none;
-    border-bottom: 1px solid var(--colorTitreMain);
-    outline: none;
-    background-color: transparent;
-    margin: 0 3px;
-    padding: 10px 0;
+.container-inscription .description .texte h2{
     color: var(--colorTitreMain);
-    display: flex;
-    align-items:center;
-}
+    font-style: italic;
 
-.container-inscription form input::placeholder,
-.container-connexion form input::placeholder{
+}
+.container-inscription .description .texte p,
+.container-inscription .form p{
     color: var(--colorSousTitres);
-    font-size: 0.8rem;
-    font-weight: bold;
+
+}
+
+.container-inscription .form{
+    width: 50%;
+    padding: 60px;
+} 
+
+.container-inscription .form form{
+    margin-top: 30px;
+}
+
+.container-inscription .form h1{
+    color: var(--colorTitreMain);
     
 }
 
+.container-inscription .form form div{
+    margin: 10px 0;
+}
 
-.container-inscription form button,
-.container-connexion form button{
-    padding: 7px;
-    font-weight: bold;
-    margin-top: 10px;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    transition: background .4s ease;
+.container-inscription .form form .box-names{
+    display: flex;
+    width: 100%;
+    gap: 8px;
+}
+.container-inscription .form form .box-nom{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+
+.container-inscription .form form .box-prenom{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.container-inscription .form form .box-email,
+.container-inscription .form form .box-password{
+    display: flex;
+    flex-direction: column;
+}
+
+.container-inscription .form form .box-button button{
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0 0 0;
+    border-radius: 7px;
+    color: var(--colorTitreMain);
+    font-weight: 700;
     background-color: var(--bleuPrincipal);
-    
-}
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: background .3s ease ;
 
-.container-inscription form button:hover,
-.container-connexion form button:hover{
+}
+.container-inscription .form form .box-button button:hover{
     background-color: transparent;
-    border: .8px solid var(--colorTitreMain);
-    color: var(--colorTitreMain);
-
+    outline: 1px solid var(--bleuPrincipal);
 }
 
-.container-inscription p, .container-connexion p{
-    color: var(--colorTitreMain);
-    font-size: 0.8rem;
+.container-inscription .form form .dejaCompte {
+    margin-top: 15px;
     text-align: center;
 }
-.container-inscription p a,
-.container-connexion p a{
-    margin-top: 8px;
+.container-inscription .form form .dejaCompte p{
+    color: var(--colorTitreMain);
+    font-weight: 500;
+}
+.container-inscription .form form .dejaCompte p a{
     color: var(--bleuPrincipal);
+    transition: opacity .3s ease;
+    text-decoration: underline;
+}
+.container-inscription .form form .dejaCompte p a:hover{
+    opacity: 0.7;
+
+}
+.container-inscription .form form label{
+    color: var(--colorTitreMain);
+    font-size: 0.9rem;
+    padding: 8px 0;
+}
+
+
+.container-inscription .form form input{
+    border: 1px solid var(--border);
+    outline: none;
+    background-color: var(--colorSousTitres);
+    padding: 5px;
+    border-radius: 7px;
+    color: var(--colorTitreMain);
+    transition: all .2s ease;
+}
+.container-inscription .form form input::placeholder{
     font-size: 0.8rem;
-    transition: color .4s ease;
+    color: var(--colorSousTitres);
 }
-.container-inscription p a:hover,
-.container-connexion p a:hover{
-    color: blue;
+.container-inscription .form form input:focus{
+    outline: 1px solid var(--bleuPrincipal);
+    box-shadow: 0 0 0 3px rgba(55, 138, 221, 0.2);
 }
+
 
 
 
