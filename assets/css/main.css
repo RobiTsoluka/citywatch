@@ -605,5 +605,12 @@ body{
 }
 
 
-
-
+.container-inscription .form form .erreur{
+    width: 100%;
+    background-color: rgba(229, 84, 84, 0.822);
+    border: 1px solid var(--rouge-bg);
+    color: var(--colorTitreMain);
+    padding: 8px;
+    border-radius: 8px;
+    margin: 8px 0;
+}
