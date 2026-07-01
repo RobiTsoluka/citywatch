@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once "./config/config.php";
 require_once  "./includes/fonctions.php";
 
@@ -121,7 +122,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     <div class="texte">
 
         <h2>Inscrivez vous </h2>
-        <p>Créer un compte citoyen pour pouvoir effectuer rapidement <br> des signalements et rendre <br> votre ville meilleure !</p>
+        <p>Créer un compte citoyen pour pouvoir <br> voir les Les signalements sur une carte et <br> effectuer rapidement des signalements et rendre <br> votre ville meilleure !</p>
 
     </div>
 
@@ -174,7 +175,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             </div>
 
             <div class="dejaCompte">
-                <p>Vous possedez un compte ? <a href="">Se connecter...</a></p>
+                <p>Vous avez un compte ? <a href="<?= SITE_URL ?>/connexion.php">Se connecter...</a></p>
             </div>
 
         </form>

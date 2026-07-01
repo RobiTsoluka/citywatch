@@ -1,4 +1,4 @@
-    
+ 
 
 <nav class="navbar">
     <a class="link-logo" href="<?= SITE_URL ?>/index.php">
