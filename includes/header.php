@@ -11,7 +11,7 @@
     <ul class="nav-center">
         <li><a href="<?= SITE_URL ?>/index.php">Acceuil</a></li>
         <li><a href="#">Carte</a></li>
-        <li><a href="#">Signaler</a></li>
+        <li><a href="<?= SITE_URL ?>/signaler.php">Signaler</a></li>
         <li><a href="#">Statistiques</a></li>
         <li><a href="#">A propos</a></li>
     </ul>
