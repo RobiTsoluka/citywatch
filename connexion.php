@@ -20,7 +20,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     // Recuperation de user dans la base de donnee 
 
-    $stmt = $pdo->prepare("SELECT user_id, email, password, role from users where email = ? ");
+    $stmt = $pdo->prepare("SELECT user_id, email, nom, prenom, password, role from users where email = ? ");
     $stmt->execute([$email]);
     $user = $stmt->fetch();
 
@@ -30,7 +30,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
         $_SESSION['user_id'] = $user['user_id'];
         $_SESSION['user_role'] = $user['role'];
-        $_SESSION['username'] = $user['nom'];
+        $_SESSION['user_nom'] = $user['nom'];
+        $_SESSION['user_prenom'] = $user['prenom'];
 
         header('Location: ./includes/auth_check.php');
         exit();
@@ -78,7 +79,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     <div class="texte">
 
         <h2>Connectez-vous </h2>
-        <p>Créer un compte citoyen pour pouvoir effectuer rapidement <br> des signalements et rendre <br> votre ville meilleure !</p>
+        <p>Connectez-vous à votre compte citoyen <br> pour pouvoir effectuer des signalements et <br> les visualiser sur une carte interactive</p>
 
     </div>
 

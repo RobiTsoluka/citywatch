@@ -22,6 +22,25 @@ require_once "config/config.php";
 <body>
 
 <?php require_once "includes/header.php" ?>
+<div class="profil_container" style="margin-top: 100px;">
+    <div class="titre" >
+        <p>
+            <?php 
+            
+                echo strtoupper(
+                    
+                    "bonjour" . " " . $_SESSION['user_nom'] . 
+                    (isset($_SESSION['user_prenom']) ? $_SESSION['user_prenom'] : '') 
+
+                    ) 
+                
+            ?>
+        </p>
+    </div>
+            
+</div>
+
+
 
 
 <div class="hero-section">
@@ -121,26 +140,30 @@ require_once "config/config.php";
 
     <div class="acceuil-alertes-categories-categories">
         <div>
-            <p>Route abimé</p>
+            <p>Route endommagée</p>
         </div>
         <div>
-            <p>Lampadaire en panne</p>
+            <p></p>
         </div>
         <div>
-            <p>Innondation</p>
+            <p>Inondation</p>
         </div>
         <div>
             <p>Déchets</p>
         </div>
         <div>
-            <p>Espace public</p>
+            <p>Caniveau bouché</p>
         </div>
         <div>
-            <p>Autres</p>
+            <p>Autre</p>
         </div>
     </div>
 
 </div>
+
+<?php if(isset($_SESSION['user_id'])): ?>
+    <p><?php echo htmlspecialchars($_SESSION['user_nom']) ?></p>
+<?php endif; ?>
 
 <div class="acceuil-register">
     <div class="acceuil-register-description">
@@ -150,6 +173,8 @@ require_once "config/config.php";
     <a href="<?= SITE_URL ?>/inscription.php" class="acceuil-register-button">Créer un compte </a>
 </div>
 
-    
+
+
+<script src="./assets/js/main.js"></script>    
 </body>
 </html>

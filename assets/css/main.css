@@ -128,16 +128,15 @@ body{
    
 }
 
-.navbar ul li a{
-    font-size: 0.7rem;
-}
+
 
 .nav-center li a{
     color: var(--colorTitreMain);
     font-weight: bold;
     position: relative;
     padding-bottom: 10px ;
-    
+    font-size: 0.8rem;
+
 
 }
 
@@ -173,13 +172,14 @@ body{
 }
 
 .nav-right a{
-    font-weight: 300;
+    font-weight: bold;
     background-color: var(--colorTitreMain);
     padding: 6px 13px;
     border-radius: 9px;
     border: 1px solid var(--border-fort);
     color: var(--bgPageColor);
     transition: background 0.4s ease;
+    font-size: 0.7rem;
 }
 
 .nav-right a:hover{
@@ -338,7 +338,6 @@ body{
     color: var(--colorTitreMain);
 }
 
-
 /* section cards page acceuil */
 
 .Acceuil-cards{
@@ -355,20 +354,21 @@ body{
 .Acceuil-cards div h4{
     color: var(--colorTitreMain);
     font-size: 0.9rem;
-    
 }
 .Acceuil-cards div p{
     color: var(--colorTexteSecondaire);
     font-size: 0.8rem;
 }
 
-.Acceuil-cards div:nth-of-type(1){border-top-left-radius: 1rem;border-bottom-left-radius: 1rem;}
-.Acceuil-cards div:nth-of-type(4){border-top-right-radius: 1rem;border-bottom-right-radius: 1rem;}
+.Acceuil-cards div:nth-of-type(1){border-top-left-radius: 1rem;border-bottom-left-radius: 1rem;margin:20px;}
+.Acceuil-cards div:nth-of-type(4){border-top-right-radius: 1rem;border-bottom-right-radius: 1rem; margin:20px;}
 
 
 .Acceuil-cards div{
     border: 1px solid var(--border);
     padding: 10px;
+    margin: 10px 0;
+    background-color: var(--bgCardsColor);
 
 }
 .Acceuil-cards div i{
@@ -385,7 +385,7 @@ body{
 .acceuil-alertes-categories{
     margin: 2rem 1rem;
     padding: 16px;
-    background-color: transparent;
+    background-color: var(--bgCardsColor);
     border: 1px solid var(--border);
     border-radius: 1rem;
     width: 75%;
@@ -701,13 +701,14 @@ h2{
     grid-template-columns: repeat(3, 1fr);
     text-align: center;
     gap: 10px;
+    padding: 10px 0;
 
 }
 
 .signaler-container .formulaire-signaler .categories .cards-categories{
-    background-color: var(--colorSousTitres);
+    background-color: var(--bgCardsColor);
     border: var(--bleuPrincipal);
-    box-shadow: 0px 10px 13px 7px rgb(30, 75, 238,0.1);
+    /* box-shadow: 0px 10px 13px 7px rgb(30, 75, 238,0.1); */
     cursor: pointer;
     color: var(--colorTitreMain);
     font-weight: bold;
@@ -755,6 +756,7 @@ h2{
     border-radius: 1rem;
     outline: none;
     resize: none;
+    
 
 }
 
@@ -773,7 +775,7 @@ h2{
     background-color: transparent;
     border-radius: 1rem;
     border: 3px dashed var(--Bleubg);
-    margin: 10px 0 ;
+    margin: 15px 0 ;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -798,6 +800,9 @@ h2{
 .signaler-container .formulaire-signaler .input-photo input[ type = 'file' ]{
     display: none;
 } 
+.signaler-container .formulaire-signaler .input-photos-container{
+    margin-top: 14px;
+}
 
 
 
@@ -819,3 +824,102 @@ h2{
     opacity: 0.8;
  
 }
+
+.formulaire-signaler form .erreur{
+    color: var(--rouge);
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.succes-signaler{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(6px);
+ 
+}
+
+.succes-signaler .succes-container{
+    background-color: var(--bgPageColor);
+    padding: 30px ;
+    width: 45%;
+    border: 3px solid var(--border-fort);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.succes-container h1{
+    color: var(--vert);
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+
+.succes-container p{
+    color: var(--colorSousTitres);
+    font-weight: 600;
+    padding: 0 15px 10px 15px;
+}
+
+.succes-container .succes-container-link{
+
+    margin: 20px  15px;
+   
+    
+}
+
+.succes-container .succes-container-link a{
+    padding: 6px 10px ;
+    border-radius: 7px;
+    font-weight: bold;
+    transition: all .3s ease;
+}
+
+
+
+.succes-container .succes-container-link a:first-child{
+    background-color: var(--colorTitreMain);
+    color: var(--bgPageColor);
+
+}
+
+.succes-container .succes-container-link a:first-child:hover,
+.succes-container .succes-container-link a:last-child:hover
+{
+    opacity: 0.5;
+}
+.succes-container .succes-container-link a:last-child{
+    background-color: transparent;
+    color: var(--colorTitreMain);
+    border: 2px solid var(--border-fort);
+    margin: 0 10px;
+
+}
+
+
+
+
+
+ /* ###################################################################################################################################"  */
+ /* STYLE HEADER QUAND L'UTILISATEUR EST CONNECTE */
+ /* ######################################################################################################################################### */
+
+.navbar .nav-right button{
+    padding: 8px 12px;
+    cursor: pointer;
+    background-color: var(--bgCardsColor);
+    outline: none;
+    border: 2px solid var(--border-fort);
+    border-radius: 45%;
+    cursor: pointer;
+}
+

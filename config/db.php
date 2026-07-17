@@ -38,13 +38,9 @@ class database{
                 PDO::FETCH_ASSOC
             );
 
-
-
-
-
         }catch(PDOException $e){
-
-        die("Erreur de connexion : {$e->getMessage()}");
+            
+            die("Erreur de connexion : {$e->getMessage()}");
 
         }
 

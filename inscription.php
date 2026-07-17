@@ -122,10 +122,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     <div class="texte">
 
         <h2>Inscrivez vous </h2>
-        <p>Créer un compte citoyen pour pouvoir <br> voir les Les signalements sur une carte et <br> effectuer rapidement des signalements et rendre <br> votre ville meilleure !</p>
+        <p>Créer un compte citoyen pour pouvoir <br> visualiser tous les signalements sur une carte et <br> effectuer rapidement des signalements Pour rendre <br> votre ville meilleure !</p>
 
     </div>
-
 
 
     </div>
