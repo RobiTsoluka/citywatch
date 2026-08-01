@@ -1,9 +1,9 @@
 <?php
-session_start();
-
-require_once './config/db.php';
+require_once 'includes/auth_check.php';
+require_once './includes/constantes.php';
 require_once './config/config.php';
-require_once './includes/fonctions.php';
+
+
 
 $pdo = PdoBdd();
 
@@ -74,8 +74,6 @@ if(empty($erreur)){
 
 }
 
-
-
 if(empty($erreur)){
 
     //insertion en bdd
@@ -90,8 +88,8 @@ if(empty($erreur)){
         $longitude,
         $latitude,
         $nomFichierUnique        
-        ));
-    
+    ));
+
     $reussie = true;
 
 }
@@ -114,6 +112,7 @@ if(empty($erreur)){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/signaler.css">
     <title>Document</title>
 </head>
 <body>

@@ -1,52 +1,55 @@
 <?php 
-session_start();
+    session_start();
 
 
-require_once "./config/config.php";
-require_once  "./includes/fonctions.php";
+    require_once "./config/config.php";
+    require_once  "./includes/constantes.php";
 
-$pdo = PdoBdd();
-
-
-// Verification
-
-$erreur = "" ;
-
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
-
-    $email = trim($_POST['email']) ?? '';
-    $password = trim($_POST['password'] ?? '');
-   
-
-    // Recuperation de user dans la base de donnee 
-
-    $stmt = $pdo->prepare("SELECT user_id, email, nom, prenom, password, role from users where email = ? ");
-    $stmt->execute([$email]);
-    $user = $stmt->fetch();
-
-    if(!$user || !password_verify($password, $user['password'])){
-        $erreur = "Email ou mot de passe incorrect ";
-    }else{
-
-        $_SESSION['user_id'] = $user['user_id'];
-        $_SESSION['user_role'] = $user['role'];
-        $_SESSION['user_nom'] = $user['nom'];
-        $_SESSION['user_prenom'] = $user['prenom'];
-
-        header('Location: ./includes/auth_check.php');
-        exit();
-
-    }
+    $pdo = PdoBdd();
 
 
+    // Verification
 
+    $erreur = "" ;
 
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
+        $email = trim($_POST['email']) ?? '';
+        $password = trim($_POST['password'] ?? '');
     
 
+        // Recuperation de user dans la base de donnee 
+
+        $stmt = $pdo->prepare("SELECT user_id, email, nom, prenom, password, role from users where email = ? ");
+        $stmt->execute([$email]);
+        $user = $stmt->fetch();
+
+        if(!$user || !password_verify($password, $user['password'])){
+            $erreur = "Email ou mot de passe incorrect ";
+        }else{
+
+            $_SESSION['user_id'] = $user['user_id'];
+            $_SESSION['user_role'] = $user['role'];
+
+            if($user['role'] === ROLE_ADMIN){
+                header('Location: admin/dashbord.php');
+            }else{
+                header('Location: index.php');
+            }
+
+            exit();
+
+        }
 
 
-}
+
+
+
+        
+
+
+
+    }
 
 
 
@@ -69,6 +72,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     <title>PAGE CONNEXION</title>
 </head>
 <body>
+
 
 <div class="container-inscription">
 

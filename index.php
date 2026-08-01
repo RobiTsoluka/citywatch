@@ -1,9 +1,28 @@
 <?php
 session_start();
 
-require_once "config/config.php"; 
+
+require_once './config/db.php';
+require_once './config/config.php';
+require_once './includes/constantes.php';
 
 
+$pdo = PdoBdd();
+
+if(isset($_SESSION['user_id'])){
+
+    $stmtRecupUser = $pdo -> prepare("SELECT * FROM users WHERE user_id = ? ");
+    $stmtRecupUser -> execute(array($_SESSION['user_id']));
+    $user = $stmtRecupUser -> fetch();
+    $nom = $user['nom'];
+    $prenom = $user['prenom'] !== NULL ? $user['prenom'] : '';
+
+
+
+
+}
+
+$initialesUser = isset($nom) ? getInitiales($nom, $prenom) : '';
 
 
 
@@ -21,26 +40,7 @@ require_once "config/config.php";
 </head>
 <body>
 
-<?php require_once "includes/header.php" ?>
-<div class="profil_container" style="margin-top: 100px;">
-    <div class="titre" >
-        <p>
-            <?php 
-            
-                echo strtoupper(
-                    
-                    "bonjour" . " " . $_SESSION['user_nom'] . 
-                    (isset($_SESSION['user_prenom']) ? $_SESSION['user_prenom'] : '') 
-
-                    ) 
-                
-            ?>
-        </p>
-    </div>
-            
-</div>
-
-
+<?php require_once 'includes/header.php' ?>
 
 
 <div class="hero-section">
@@ -71,6 +71,15 @@ require_once "config/config.php";
             <a href="#" class="hero-section-left-button">Faire un signalement</a>
 
         </div>
+
+        <?php if(isset($_SESSION['user_id'])): ?>
+            <div class="link-mes-signalements">
+                <a href="<?= SITE_URL ?>/mon_profil.php" >
+                    <i class="ti ti-alert-triangle"></i>
+                    Mes signalements
+                </a>
+            </div>
+        <?php endif; ?>
 
         <div class="hero-section-left-stats">
             <div>
@@ -161,10 +170,6 @@ require_once "config/config.php";
 
 </div>
 
-<?php if(isset($_SESSION['user_id'])): ?>
-    <p><?php echo htmlspecialchars($_SESSION['user_nom']) ?></p>
-<?php endif; ?>
-
 <div class="acceuil-register">
     <div class="acceuil-register-description">
         <h3>Votre ville a besoin de vous </h3>
@@ -174,6 +179,10 @@ require_once "config/config.php";
 </div>
 
 
+
+
+
+<?php require_once 'includes/footer.php' ?>
 
 <script src="./assets/js/main.js"></script>    
 </body>
