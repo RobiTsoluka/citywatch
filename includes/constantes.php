@@ -1,6 +1,5 @@
 <?php
-require_once './config/db.php';
-
+require_once __DIR__ . '/../config/db.php';
 
 function PdoBdd(){
     $connection = new database();
@@ -27,4 +26,23 @@ $couleurs_statuts = [
 
 function getInitiales(string $nom, string $prenom): string{
     return strtoupper($nom[0]) . ($prenom ? strtoupper($prenom[0]) : "");
+}
+
+function tempsEcoule(string $date): string {
+
+    $diff = time() - strtotime($date);
+
+    if ($diff < 3600) {
+        $min = round($diff / 60);
+        return "il y a " . $min . " min";
+    } elseif ($diff < 86400) {
+        $h = round($diff / 3600);
+        return "il y a " . $h . "h";
+    } elseif ($diff < 2592000) {
+        $j = round($diff / 86400);
+        return "il y a " . $j . " jour" . ($j > 1 ? "s" : "");
+    } else {
+        $mois = round($diff / 2592000);
+        return "il y a " . $mois . " mois";
+    }
 }

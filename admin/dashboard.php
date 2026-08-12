@@ -1,3 +1,104 @@
+<?php
+session_start();
+require_once __DIR__ . '/../includes/constantes.php';
+
+
+
+
+
+
+
+
+
+
+// if($_SESSION['user_role'] !== 'admin'){
+//     header('Location: ../index.php');
+//     exit();
+// }
+
+$pdo = PdoBdd();
+
+
+// Récupération des statistiques
+
+// Total signalements
+$stat1sql = "SELECT COUNT(*) FROM signalements";
+$stmtStat1 = $pdo->query($stat1sql);
+
+$totalSignalements = $stmtStat1->fetchColumn();
+
+
+// Total signalements en attente
+
+$stat2sql = "SELECT COUNT(*) FROM signalements WHERE statut = 'en_attente' ";
+$stmtStat2 = $pdo->query($stat2sql);
+
+$totalEnAttente = $stmtStat2->fetchColumn();
+
+// Total signalements en cours
+
+$stat3sql = "SELECT COUNT(*) FROM signalements WHERE statut = 'en_cours' ";
+$stmtStat3 = $pdo->query($stat3sql);
+
+$totalEnCours = $stmtStat3->fetchColumn();
+
+// Total signalements résolus
+
+$stat4sql = "SELECT COUNT(*) FROM signalements WHERE statut = 'resolu' ";
+$stmtStat4 = $pdo->query($stat4sql);
+
+$totalResolu = $stmtStat4->fetchColumn();
+
+
+// Récupération des signalements pour le tableau
+
+$signalementsSql = "SELECT signalements.signalement_id, signalements.categorie, signalements.description, signalements.date_creation, users.nom, users.prenom
+FROM signalements
+JOIN users ON signalements.user_id = users.user_id
+";
+$stmtSignalements = $pdo->query($signalementsSql);
+$signalements = $stmtSignalements->fetchAll();
+
+// Récupération du nom/prénom lié au signalement
+$nomSignalement = $signalements[0]['nom'] ?? '';
+$prenomSignalement = $signalements[0]['prenom'] ?? '';
+
+//description du signalement arrondie à 40 caractères avec "..." si le texte est plus long
+
+
+
+// Récupération de la couleur de la catégorie du signalement depuis le tableau $couleurs_categories défini dans constantes.php
+
+$CatColors = $couleurs_categories[$signalements[0]['categorie']] ?? '';
+
+// Temps ecoulé depuis la création du signalement
+
+$date = $signalements[0]['date_creation'] ?? '';
+
+$dateSignalementsTempsEc =  tempsEcoule($date);
+
+// initiales de l'utilisateur lié au signalement
+$userInitiales = getInitiales($nomSignalement, $prenomSignalement);
+
+
+
+
+
+
+
+
+
+?>
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -27,14 +128,14 @@
                 <i class="ti ti-map-pin" aria-hidden="true"></i>
                 Carte
             </a>
-            <a href="#" class="dashboard-sidebar-nav-item">
+            <!-- <a href="#" class="dashboard-sidebar-nav-item">
                 <i class="ti ti-alert-triangle" aria-hidden="true"></i>
                 Signalements
             </a>
             <a href="#" class="dashboard-sidebar-nav-item">
                 <i class="ti ti-users" aria-hidden="true"></i>
                 Citoyens
-            </a>
+            </a> -->
         </nav>
 
         <div class="dashboard-sidebar-bottom">
@@ -60,19 +161,25 @@
 
         <div class="dashboard-statistiques">
             <div class="dashboard-statistiques-card">
-                <p class="dashboard-statistiques-card-valeur">1 248</p>
+                <p class="dashboard-statistiques-card-valeur"><?= number_format($totalSignalements, 0, ',', ' ') ?></p>
                 <p class="dashboard-statistiques-card-label">Total signalements</p>
             </div>
             <div class="dashboard-statistiques-card">
-                <p class="dashboard-statistiques-card-valeur dashboard-statistiques-card-valeur-orange">342</p>
+                <p class="dashboard-statistiques-card-valeur dashboard-statistiques-card-valeur-orange">
+                    <?= number_format($totalEnAttente, 0 , ',' , ' ') ?>
+                </p>
                 <p class="dashboard-statistiques-card-label">En attente</p>
             </div>
             <div class="dashboard-statistiques-card">
-                <p class="dashboard-statistiques-card-valeur dashboard-statistiques-card-valeur-bleu">187</p>
+                <p class="dashboard-statistiques-card-valeur dashboard-statistiques-card-valeur-bleu">
+                    <?= number_format($totalEnCours, 0 , ',' , ' ') ?>
+                </p>
                 <p class="dashboard-statistiques-card-label">En cours</p>
             </div>
             <div class="dashboard-statistiques-card">
-                <p class="dashboard-statistiques-card-valeur dashboard-statistiques-card-valeur-vert">719</p>
+                <p class="dashboard-statistiques-card-valeur dashboard-statistiques-card-valeur-vert">
+                    <?= number_format($totalResolu, 0 , ',' , ' ') ?>
+                </p>
                 <p class="dashboard-statistiques-card-label">Résolus</p>
             </div>
         </div>
@@ -80,6 +187,7 @@
         <div class="dashboard-filtres">
             <div class="dashboard-filtres-pills">
                 <a href="#" class="dashboard-filtres-pill active">Tous</a>
+                
                 <a href="#" class="dashboard-filtres-pill">En attente</a>
                 <a href="#" class="dashboard-filtres-pill">En cours</a>
                 <a href="#" class="dashboard-filtres-pill">Résolu</a>
@@ -108,27 +216,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="dashboard-tableau-id">#001</td>
-                        <td><span class="dashboard-tableau-badge cat-rouge">Route</span></td>
-                        <td class="dashboard-tableau-description">Nid-de-poule dangereux Av. Kasa-Vubu...</td>
-                        <td>
-                            <div class="dashboard-tableau-citoyen">
-                                <div class="dashboard-tableau-citoyen-avatar">KM</div>
-                                <span>Karim M.</span>
-                            </div>
-                        </td>
-                        <td class="dashboard-tableau-date">il y a 2h</td>
-                        <td>
-                            <select class="dashboard-tableau-select">
-                                <option selected>En attente</option>
-                                <option>En cours</option>
-                                <option>Résolu</option>
-                            </select>
-                        </td>
-                        <td><a href="#" class="dashboard-tableau-btn-voir">Voir</a></td>
-                    </tr>
-                    <tr>
+                    <?php foreach ($signalements as $signalement): ?>
+                        <tr>
+                            <td class="dashboard-tableau-id"><?= "0" . $signalement['signalement_id'] ?></td>
+                            <td><span class="dashboard-tableau-badge <?= $CatColors ?>">Route</span></td>
+                            <td class="dashboard-tableau-description"><?= mb_strimwidth($signalement['description'], 0, 50, "...") ?></td>
+                            <td>
+                                <div class="dashboard-tableau-citoyen">
+                                    <div class="dashboard-tableau-citoyen-avatar"><?= $userInitiales ?></div>
+                                    <span><?= $nomSignalement . " " . $prenomSignalement ?></span>
+                                </div>
+                            </td>
+                            <td class="dashboard-tableau-date"><?= $dateSignalementsTempsEc ?></td>
+                            <td>
+                                <select class="dashboard-tableau-select">
+                                    <option selected>En attente</option>
+                                    <option>En cours</option>
+                                    <option>Résolu</option>
+                                </select>
+                            </td>
+                            <td><a href="#" class="dashboard-tableau-btn-voir">Voir</a></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    <!-- <tr>
                         <td class="dashboard-tableau-id">#002</td>
                         <td><span class="dashboard-tableau-badge cat-bleu">Inondation</span></td>
                         <td class="dashboard-tableau-description">Rue inondée après les pluies Q. Matonge...</td>
@@ -167,7 +277,7 @@
                             </select>
                         </td>
                         <td><a href="#" class="dashboard-tableau-btn-voir">Voir</a></td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
         </div>

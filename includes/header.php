@@ -1,3 +1,15 @@
+<?php
+// dans header.php tout en haut
+if(isset($_SESSION['user_id']) && !isset($user)) {
+    $stmtRecupUser = $pdo->prepare("SELECT * FROM users WHERE user_id = ?");
+    $stmtRecupUser->execute([$_SESSION['user_id']]);
+    $user = $stmtRecupUser->fetch();
+    $nom    = $user['nom'];
+    $prenom = $user['prenom'] !== NULL ? $user['prenom'] : '';
+    $initialesUser = getInitiales($nom, $prenom);
+}
+?>
+
 <nav class="navbar">
     <a class="link-logo" href="<?= SITE_URL ?>/index.php">
         <div class="logo">
@@ -16,7 +28,7 @@
             <li><a href="<?= SITE_URL ?>/signaler.php">Signaler</a></li>
         <?php endif; ?>
 
-        <li><a href="#">À propos</a></li>
+        <li><a href="<?= SITE_URL ?>/apropos.php">À propos</a></li>
     </ul>
 
     <ul class="nav-right">
@@ -24,12 +36,6 @@
             <li><a href="<?= SITE_URL ?>/connexion.php">Connexion</a></li>
             <li><a href="<?= SITE_URL ?>/inscription.php">S'inscrire</a></li>
         <?php else: ?>
-            <li>
-                <button type="button" id="button_notif" class="nav-btn-notif">
-                    <i class="ti ti-bell"></i>
-                    <span class="nav-btn-notif-badge">3</span>
-                </button>
-            </li>
             <li>
                 <button type="button" id="button_profil" class="nav-btn-profil">
                     <?= isset($initialesUser) ? htmlspecialchars($initialesUser) : '?' ?>

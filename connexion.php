@@ -32,7 +32,7 @@
             $_SESSION['user_role'] = $user['role'];
 
             if($user['role'] === ROLE_ADMIN){
-                header('Location: admin/dashbord.php');
+                header('Location: admin/dashboard.php');
             }else{
                 header('Location: index.php');
             }

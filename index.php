@@ -9,25 +9,53 @@ require_once './includes/constantes.php';
 
 $pdo = PdoBdd();
 
-if(isset($_SESSION['user_id'])){
-
-    $stmtRecupUser = $pdo -> prepare("SELECT * FROM users WHERE user_id = ? ");
-    $stmtRecupUser -> execute(array($_SESSION['user_id']));
-    $user = $stmtRecupUser -> fetch();
-    $nom = $user['nom'];
-    $prenom = $user['prenom'] !== NULL ? $user['prenom'] : '';
 
 
+$stmtRecents = $pdo->query("SELECT * FROM signalements ORDER BY date_creation DESC LIMIT 4");
+$signalements_recents = $stmtRecents->fetchAll();
+
+$stmtCountCategoriesRoute = $pdo->prepare("SELECT COUNT(*) as count FROM signalements WHERE categorie = 'route'");
+$stmtCountCategoriesRoute->execute();
+$categories_route_count = $stmtCountCategoriesRoute->fetchAll();
+
+$countRoute = $categories_route_count[0]['count'] ?? 0;
 
 
-}
+$stmtCountCategoriesInondation = $pdo->prepare("SELECT COUNT(*) as count FROM signalements WHERE categorie = 'inondation'");
+$stmtCountCategoriesInondation->execute();
+$categories_inondation_count = $stmtCountCategoriesInondation->fetchAll();
 
-$initialesUser = isset($nom) ? getInitiales($nom, $prenom) : '';
+$countInondation = $categories_inondation_count[0]['count'] ?? 0;
 
+
+$stmtCountCategoriesDechets = $pdo->prepare("SELECT COUNT(*) as count FROM signalements WHERE categorie = 'dechets'");
+$stmtCountCategoriesDechets->execute();
+$categories_dechets_count = $stmtCountCategoriesDechets->fetchAll();
+
+$countDechets = $categories_dechets_count[0]['count'] ?? 0;
+
+
+$stmtCountCategoriesCaniveau = $pdo->prepare("SELECT COUNT(*) as count FROM signalements WHERE categorie = 'caniveau'");
+$stmtCountCategoriesCaniveau->execute();
+$categories_caniveau_count = $stmtCountCategoriesCaniveau->fetchAll();
+
+$countCaniveau = $categories_caniveau_count[0]['count'] ?? 0;
+
+
+$stmtCountCategoriesAutre = $pdo->prepare("SELECT COUNT(*) as count FROM signalements WHERE categorie = 'autre'");
+$stmtCountCategoriesAutre->execute();
+$categories_autre_count = $stmtCountCategoriesAutre->fetchAll();
+
+$countAutre = $categories_autre_count[0]['count'] ?? 0;
+
+$countRoutePourcentage = $countRoute > 0 ? ($countRoute / ($countRoute + $countInondation + $countDechets + $countCaniveau + $countAutre)) * 100 : 0;
+$countInondationPourcentage = $countInondation > 0 ? ($countInondation / ($countRoute + $countInondation + $countDechets + $countCaniveau + $countAutre)) * 100 : 0;
+$countDechetsPourcentage = $countDechets > 0 ? ($countDechets / ($countRoute + $countInondation + $countDechets + $countCaniveau + $countAutre)) * 100 : 0;
+$countCaniveauPourcentage = $countCaniveau > 0 ? ($countCaniveau / ($countRoute + $countInondation + $countDechets + $countCaniveau + $countAutre)) * 100 : 0;
+$countAutrePourcentage = $countAutre > 0 ? ($countAutre / ($countRoute + $countInondation + $countDechets + $countCaniveau + $countAutre)) * 100 : 0;
 
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -56,13 +84,11 @@ $initialesUser = isset($nom) ? getInitiales($nom, $prenom) : '';
             </div>
 
             <div class="hero-section-left-text-centre-paragraphe">
-                <p>Signalez un danger, confirmez une alerte, 
-                   suivez les interventions. <br> CityWatch relie les citoyens et les autorités 
+                <p>Signalez un danger, 
+                   suivez les interventions. <br> CityWatch La plateforme relie les citoyens et les autorités 
                    instantanément.</p>
             </div>
             
-            
-
 
         </div>
 
@@ -103,9 +129,50 @@ $initialesUser = isset($nom) ? getInitiales($nom, $prenom) : '';
     </div>
 
     <div class="hero-section-right">
-        <div>
-            
+        <div class="accueil-recents">
+            <div class="accueil-recents-entete">
+                <h3>Signalements récents</h3>
+            </div>
 
+            <div class="accueil-recents-liste">
+
+                <?php if(empty($signalements_recents)): ?>
+                    <div class="accueil-recents-vide">
+                        <i class="ti ti-alert-circle"></i>
+                        <p>Aucun signalement pour l'instant</p>
+                    </div>
+                <?php else: ?>
+                    <?php foreach($signalements_recents as $s): ?>
+                    <?php $classe_cat = $couleurs_categories[$s['categorie']]; ?>
+                    <div class="accueil-recents-card">
+                        <div class="accueil-recents-card-haut">
+                            <span class="accueil-recents-card-badge <?= $classe_cat ?>">
+                                <?= htmlspecialchars($s['categorie']) ?>
+                            </span>
+                            <span class="accueil-recents-card-temps">
+                                <?= tempsEcoule($s['date_creation']) ?>
+                            </span>
+                        </div>
+                        <p class="accueil-recents-card-description">
+                            <?= htmlspecialchars(substr($s['description'], 0, 80)) ?>...
+                        </p>
+                        <div class="accueil-recents-card-bas">
+                            <div class="accueil-recents-card-localisation">
+                                <i class="ti ti-map-pin"></i>
+                                <span>Kinshasa</span>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+
+            </div>
+
+            <a href="<?= isset($_SESSION['user_id']) ? SITE_URL . '/alerte.php' : SITE_URL . '/connexion.php' ?>" 
+            class="accueil-recents-voir-plus">
+                Voir tous les signalements
+                <i class="ti ti-arrow-right"></i>
+            </a>
         </div>
 
     </div>
@@ -142,31 +209,54 @@ $initialesUser = isset($nom) ? getInitiales($nom, $prenom) : '';
 </div>
 
 <div class="acceuil-alertes-categories">
-    <div class="acceuil-alertes-categories-description">
-        <h3>Alertes par catégorie</h3>
-        <p>Ce mois-ci</p>
-    </div>
+    <div class="acceuil-alertes-categories-content">
 
-    <div class="acceuil-alertes-categories-categories">
-        <div>
-            <p>Route endommagée</p>
+        <div class="acceuil-alertes-categories-description">
+            <h3>Alertes par catégorie</h3>
+            <p>Ce mois-ci</p>
         </div>
-        <div>
-            <p></p>
+
+        <div class="acceuil-alertes-categories-categories">
+            <div>
+                <p>Route endommagée</p>
+                <div class="acceuil-alertes-categories-bar">
+                    <div style="width: <?= $countRoutePourcentage ? $countRoutePourcentage : 0 ?>%" class="<?= $couleurs_categories['route'] ?? '' ?>"></div>
+                </div>
+                <p class="acceuil-alertes-categories-count"><?= $countRoute ?></p>
+            </div>
+
+            <div>
+                <p>Inondation</p>
+                <div class="acceuil-alertes-categories-bar">
+                    <div style="width: <?= $countInondationPourcentage ? $countInondationPourcentage : 0 ?>%" class="<?= $couleurs_categories['inondation'] ?? '' ?>"></div>
+                </div>
+                <p class="acceuil-alertes-categories-count"><?= $countInondation ?></p>
+            </div>
+            <div>
+                <p>Déchets</p>
+                <div class="acceuil-alertes-categories-bar">
+                    <div style="width: <?= $countDechetsPourcentage ? $countDechetsPourcentage : 0 ?>%" class="<?= $couleurs_categories['dechets'] ?? '' ?>"></div> 
+                </div>
+                <p class="acceuil-alertes-categories-count"><?= $countDechets ?></p>
+            </div>
+            <div>
+                <p>Caniveau bouché</p>
+                <div class="acceuil-alertes-categories-bar">
+                    <div style="width: <?= $countCaniveauPourcentage ? $countCaniveauPourcentage : 0 ?>%" class="<?= $couleurs_categories['caniveau'] ?? '' ?>"></div>
+                </div>
+                <p class="acceuil-alertes-categories-count"><?= $countCaniveau ?></p>
+            </div>
+            <div>
+                <p>Autre</p>
+                <div class="acceuil-alertes-categories-bar">
+                    <div style="width: <?= $countAutrePourcentage ? $countAutrePourcentage : 0 ?>%" class="<?= $couleurs_categories['autre'] ?? '' ?>"></div>
+                </div>
+                <p class="acceuil-alertes-categories-count"><?= $countAutre ?></p>
+            </div>
         </div>
-        <div>
-            <p>Inondation</p>
-        </div>
-        <div>
-            <p>Déchets</p>
-        </div>
-        <div>
-            <p>Caniveau bouché</p>
-        </div>
-        <div>
-            <p>Autre</p>
-        </div>
+
     </div>
+    
 
 </div>
 

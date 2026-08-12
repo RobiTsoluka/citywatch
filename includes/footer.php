@@ -22,7 +22,7 @@
     <div class="footer-separateur"></div>
 
     <div class="footer-bottom">
-        <p class="footer-credit">Développé par <span>Tsoluka Robin</span> &middot; <?= date('Y') ?></p>
+        <p class="footer-credit">Développé par <span>Tsoluka Robi</span> &middot; <?= date('Y') ?></p>
         <div class="footer-links">
             <a href="#">À propos</a>
             <a href="https://github.com/RobiTsoluka">Github</a>

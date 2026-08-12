@@ -50,7 +50,7 @@ $signalements = $stmtSignalement -> fetchAll();
         <div class="user-nom">
             <div class="initiales">
                 <div>
-                    <h1><?= htmlspecialchars($initialesUser)?></h1>
+                    <h1 class="nav-dropdown-header-avatar" ><?= htmlspecialchars($initialesUser)?></h1>
                 </div>
                 <div class="nom">
                     <h1><?= htmlspecialchars(strtoupper($nom_user) . " " .strtoupper($prenom_user) ); ?></h1>
@@ -106,7 +106,6 @@ $signalements = $stmtSignalement -> fetchAll();
 
         <div class="description">
             <div class="titre">
-                <div class="tiret"></div>
                 <div class="text">
                     <p class="">Historique des signalements &middot;</p>
                 </div>
@@ -127,6 +126,8 @@ $signalements = $stmtSignalement -> fetchAll();
                     <?php 
                     $classes_categorie = $couleurs_categories[$signalement['categorie']];
                     $classes_Status = $couleurs_statuts[$signalement['statut']];
+
+    
                          
                     ?>
 

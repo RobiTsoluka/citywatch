@@ -33,10 +33,9 @@
 }
 
 .dashboard-sidebar-logo h2 {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: lighter;
     color: var(--colorTitreMain);
-    font-family: serif;
 }
 
 .dashboard-sidebar-logo h2 span {
@@ -126,7 +125,6 @@
     font-size: 1.4rem;
     font-weight: normal;
     color: var(--colorTitreMain);
-    font-family: serif;
 }
 
 .dashboard-principal-sous-titre {
@@ -145,12 +143,16 @@
 }
 
 .dashboard-statistiques-card {
-    background-color: var(--bgCardsColor);
+    background-color: transparent;
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 16px 20px;
 }
-
+.dashboard-statistiques-card:hover {
+    transform: scale(1.02);
+    transition: all .3s ease;
+    border-color: var(--border-fort);
+}
 .dashboard-statistiques-card-valeur {
     font-size: 1.6rem;
     font-weight: bold;
@@ -321,4 +323,94 @@
 .dashboard-tableau-btn-voir:hover {
     background-color: var(--Bleubg);
     border-color: var(--bleuPrincipal);
+}
+
+@media (max-width: 1024px) {
+    .dashboard-conteneur {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 16px 0;
+    }
+
+    .dashboard-sidebar-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .dashboard-sidebar-bottom {
+        margin-top: 0;
+        border-top: none;
+        padding: 12px 20px 0;
+    }
+
+    .dashboard-principal {
+        padding: 22px 24px;
+    }
+
+    .dashboard-statistiques {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-filtres {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .dashboard-filtres-pills {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 640px) {
+    .dashboard-principal {
+        padding: 16px 16px 24px;
+    }
+
+    .dashboard-principal-titre {
+        font-size: 1.2rem;
+    }
+
+    .dashboard-principal-sous-titre {
+        font-size: 0.7rem;
+    }
+
+    .dashboard-statistiques {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-sidebar-logo {
+        padding: 0 16px 16px;
+    }
+
+    .dashboard-sidebar-nav {
+        padding: 0 12px;
+    }
+
+    .dashboard-sidebar-nav-item {
+        justify-content: center;
+    }
+
+    .dashboard-filtres-pills {
+        width: 100%;
+    }
+
+    .dashboard-filtres-pill {
+        flex: 1;
+        text-align: center;
+        padding: 5px 10px;
+    }
+
+    .dashboard-filtres-select {
+        width: 100%;
+    }
+
+    .dashboard-tableau th,
+    .dashboard-tableau td {
+        padding: 10px 10px;
+    }
 }
